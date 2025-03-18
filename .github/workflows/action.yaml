@@ -24,3 +24,8 @@ jobs:
         identity-id: "879be178-7f68-4405-ac2a-8ca273056f73"
         env-slug: "dev"
         project-slug: "hello-5m-vu"
+        export-type: "file"
+    - name: Display .env file
+      run: |
+        echo "Using existing .env file in the workflow"
+        cat .env
