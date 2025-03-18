@@ -1,0 +1,26 @@
+name: Deployment pipeline
+on: [workflow_dispatch]
+
+permissions:
+  id-token: write
+  contents: read
+
+concurrency: 
+  group: "infisical-core-deployment"
+  cancel-in-progress: true  
+
+jobs:
+  infisical-image:
+    name: Build
+    runs-on: ubuntu-latest
+    environment: 
+      name: infisical-build-stage
+    outputs:
+      image_tag: ${{ steps.commit.outputs.short }}  # Define the output at the job level
+    steps:
+    - uses: Infisical/secrets-action@v1.0.9
+      with:
+        client-id: ${{ secrets.MACHINE_IDENTITY_CLIENT_ID }} # Update this to your own Github references
+        client-secret: ${{ secrets.MACHINE_IDENTITY_CLIENT_SECRET }} # Update this to your own Github references
+        env-slug: "dev"
+        project-slug: "hello-5m-vu"
