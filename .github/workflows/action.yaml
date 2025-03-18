@@ -20,7 +20,7 @@ jobs:
     steps:
     - uses: Infisical/secrets-action@v1.0.9
       with:
-        client-id: ${{ secrets.MACHINE_IDENTITY_CLIENT_ID }} # Update this to your own Github references
-        client-secret: ${{ secrets.MACHINE_IDENTITY_CLIENT_SECRET }} # Update this to your own Github references
+        method: "oidc"
+        identity-id: "879be178-7f68-4405-ac2a-8ca273056f73"
         env-slug: "dev"
         project-slug: "hello-5m-vu"
