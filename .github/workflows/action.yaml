@@ -25,7 +25,7 @@ jobs:
         env-slug: "dev"
         project-slug: "hello-5m-vu"
         export-type: "file"
-        secret-path: "/folderA/test"
+        secret-path: "/folderA/maidul98"
     - name: Display .env file
       run: |
         echo "Using existing .env file in the workflow"
